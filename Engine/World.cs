@@ -82,18 +82,46 @@ namespace Engine
             ItemByID(ITEM_ID_SPIDER_SILK), 25, false));
             
             Monsters.Add(rat);
-            81 Monsters.Add(snake);
-            82 Monsters.Add(giantSpider);
+            Monsters.Add(snake);
+            Monsters.Add(giantSpider);
             throw new NotImplementedException();
         }
 
         private static void PopulateLocations()
         {
+
+
+
+
+
+
+
             throw new NotImplementedException();
         }
 
         private static void PopulateQuests()
         {
+            Quest clearAlchemistGarden = new Quest(QUEST_ID_CLEAR_ALCHEMIST_GARDEN,
+            "Clear the alchemist's garden",
+            "Kill rats in the alchemist's garden and bring back 3 rat tails. You will receive a healing potion and 10 gold pieces.", 20, 10);
+
+            clearAlchemistGarden.QuestCompletionItems.Add(new QuestCompletionItem(
+            ItemByID(ITEM_ID_RAT_TAIL), 3));
+            
+            clearAlchemistGarden.RewardItem = ItemByID(ITEM_ID_HEALING_POTION);
+                     
+            Quest clearFarmersField = new Quest(QUEST_ID_CLEAR_FARMERS_FIELD,
+            "Clear the farmer's feld",
+            "Kill snakes in the farmer's feld and bring back 3 snake fangs.You will receive an adventurer's pass and 20 gold pieces.", 20, 20);
+
+            clearFarmersField.QuestCompletionItems.Add(new QuestCompletionItem(
+            ItemByID(ITEM_ID_SNAKE_FANG), 3));
+            
+            clearFarmersField.RewardItem = ItemByID(ITEM_ID_ADVENTURER_PASS);
+                    
+            Quests.Add(clearAlchemistGarden);
+            Quests.Add(clearFarmersField);
+
             throw new NotImplementedException();
         }
 
