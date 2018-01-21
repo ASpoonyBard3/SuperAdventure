@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Engine
 {
-    class LootItem
+    public class LootItem
     {
         public LootItem(Item details, int dropPercentage, bool isDefaultItem)
         {
