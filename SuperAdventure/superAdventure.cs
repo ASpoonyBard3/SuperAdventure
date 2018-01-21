@@ -19,13 +19,14 @@ namespace SuperAdventure
         {
             InitializeComponent();
 
-            _player = new Player();
-
-            _player.CurrentHitPoints = 10;
-            _player.MaximumHitPoints = 10;
-            _player.Gold = 20;
-            _player.ExpPoints = 0;
-            _player.Level = 1;
+            _player = new Player
+            {
+                CurrentHitPoints = 10,
+                MaximumHitPoints = 10,
+                Gold = 20,
+                ExpPoints = 0,
+                Level = 1
+            };
 
             lblHitPoints.Text = _player.CurrentHitPoints.ToString();
             lblGold.Text = _player.Gold.ToString();
