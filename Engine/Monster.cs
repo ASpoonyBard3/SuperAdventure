@@ -8,14 +8,24 @@ namespace Engine
 {
     public class Monster : LivingCreature
     {
-        public Monster(int currentHitPoints, int maximumHitPoints) : base(currentHitPoints, maximumHitPoints)
-        {
-        }
-
         public int ID { get; set; }
-        public int Name { get; set; }
+        public string Name { get; set; }
         public int MaximumDamage { get; set; }
         public int RewardExpPoints { get; set; }
         public int RewardGold { get; set; }
+        public List<LootItem> LootTable { get; set; }
+
+
+        public Monster(int id, string name, int maximumDamage, 
+            int rewardExpPoints, int rewardGold, int currentHitPoints,
+            int maximumHitPoints) : base(currentHitPoints, maximumHitPoints)
+        {
+            ID = id;
+            Name = name;
+            MaximumDamage = maximumDamage;
+            RewardExpPoints = rewardExpPoints;
+            RewardGold = rewardGold;
+            LootTable = new List<lootTable>();
+        }
     }
 }

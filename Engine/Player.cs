@@ -12,7 +12,7 @@ namespace Engine
         public int ExpPoints { get; set; }
         public int Level { get; set; }
         public List<InventoryItem> Inventory { get; set; }
-        public List<PlayerQuest> Quest { get; set; }
+        public List<PlayerQuest> Quests { get; set; }
 
         public Player(int currentHitPoints, int maximumHitPoints,
             int gold, int expPoints, int level): base(currentHitPoints, maximumHitPoints)
@@ -20,6 +20,8 @@ namespace Engine
             Gold = gold;
             ExpPoints = expPoints;
             Level = level;
+            Inventory = new List<InventoryItem>();
+            Quests = new List<PlayerQuest>();
         }
 
     }

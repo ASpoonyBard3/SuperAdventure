@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Engine
 {
-    class QuestCompletionItem
+    public class QuestCompletionItems
     {
-        public QuestCompletionItem(Item details, int quantity)
+        public QuestCompletionItems(Item details, int quantity)
         {
             Details = details;
             Quantity = quantity;
