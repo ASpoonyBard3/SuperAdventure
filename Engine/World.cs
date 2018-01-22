@@ -210,7 +210,6 @@ namespace Engine
                     return monster;
                 }
             }
-
             return null;
         }
 
@@ -223,18 +222,18 @@ namespace Engine
                     return quest;
                 }
             }
+            return null;
         }
 
         public static Location LocationByID(int id)
         {
-            foreach(Location location in Locations)
+            foreach(Location location in Location)
             {
                 if(location.ID == id)
                 {
                     return location;
                 }
             }
-
             return null;
         }
     }
