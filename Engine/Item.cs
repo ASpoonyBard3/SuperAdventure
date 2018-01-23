@@ -17,6 +17,6 @@ namespace Engine
 
         public int ID { get; set; }
         public string Name { get; set; }
-        public int NamePlural { get; set; }
+        public string NamePlural { get; set; }
     }
 }
