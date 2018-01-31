@@ -28,8 +28,38 @@ namespace SuperAdventure
             lblExp.Text = _player.ExpPoints.ToString();
             lblLevel.Text = _player.Level.ToString();
         }
+
+        private void BtnNorth_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnEast_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnWest_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnSouth_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnUseWeapon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnUsePotion_Click(object sender, EventArgs e)
+        {
+
+        }
         //Location test1 = new Location(1, "Your house", "This is your house");
         //Location test2 = new Location(1, "Your house", "This is your house", null, null, null);
-        
+
     }
 }
