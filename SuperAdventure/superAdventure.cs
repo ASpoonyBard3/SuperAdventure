@@ -90,7 +90,46 @@ namespace SuperAdventure
             btnSouth.Visible = (newLocation.LocationToSouth != null);
             btnWest.Visible = (newLocation.LocationToWest != null);
 
+            //display current location name and description
+            rtbLocation.Text = newLocation.Name + Environment.NewLine;
+            rtbLocation.Text += newLocation.Description + Environment.NewLine;
 
+            // completely heal the player
+            _player.CurrentHitPoints = _player.MaximumHitPoints;
+
+            // update hit points in UI
+            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+
+            //does the location have a quest?
+            if(newLocation.QuestAvailableHere != null)
+            {
+                //see if the player already has the quest, and if they've completed it.
+                bool playerAlreadyHasQuest = false;
+                bool playerAlreadyCompletedQuest = false;
+
+                foreach (PlayerQuest playerQuest in _player.Quests)
+                {
+                    if(playerQuest.Details.ID == newLocation.QuestAvailableHere.ID)
+                    {
+                        playerAlreadyHasQuest = true;
+
+                        if (playerQuest.IsCompleted)
+                        {
+                            playerAlreadyCompletedQuest = true;
+                        }
+                    }
+                }
+
+                // see if the player already has the quest
+                if (playerAlreadyHasQuest)
+                {
+                    //if the player has not completed the quest yet
+                    if (!playerAlreadyCompletedQuest)
+                    {
+                        //see if the player has all the items needed to complete the quest
+                    }
+                }
+            }
         }
 
     }
