@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Engine
 {
-    class Weapon : Item
+    public class Weapon : Item
     {
         public Weapon(int id, string name, string namePlural, int minimumDamage, int maximumDamage) 
             : base(id, name, namePlural)
