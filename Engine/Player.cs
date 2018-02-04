@@ -25,5 +25,25 @@ namespace Engine
             Quests = new List<PlayerQuest>();
         }
 
+        public bool HasRequiredItemToEnterThisLocation(Location location)
+        {
+            if(location.ItemRequiredToEnter == null)
+            {
+                //thereis no required item for this location, 
+                // so return "true"
+                return true;
+            }
+            // see if the player has the required item in their inventory
+            foreach(InventoryItem ii in Inventory)
+            {
+                if(ii.Details.ID == location.ItemRequiredToEnter.ID)
+                {
+                    //we found the required item, so return "true"
+                    return true;
+                }
+            }
+            // we didn't find the required item in their inventory, so return "false"
+            return false;
+        }
     }
 }
