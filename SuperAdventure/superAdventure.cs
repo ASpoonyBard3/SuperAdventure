@@ -324,6 +324,116 @@ namespace SuperAdventure
             }
         }
 
+        private void UpdateQuestListInUI()
+        {
+            dgvQuests.RowHeadersVisible = false;
+
+            dgvQuests.ColumnCount = 2;
+            dgvInventory.Columns[0].Name = "Name";
+            dgvInventory.Columns[1].Width = 197;
+            dgvInventory.Columns[2].Name = "Quantity";
+
+            dgvInventory.Rows.Clear();
+
+            foreach(InventoryItem inventoryItem in _player.Inventory)
+            {
+                if(inventoryItem.Quantity > 0)
+                {
+                    dgvInventory.Rows.Add(new[]
+                    {
+                        inventoryItem.Details.Name,
+                        inventoryItem.Quantity.ToString()
+                    });
+                }
+            }
+
+        }
+
+        private void UpdateQuestListInUI()
+        {
+            dgvQuests.RowHeadersVisible = false;
+
+            dgvQuests.ColumnCount = 2;
+            dgvQuests.Columns[0].Name = "Name";
+            dgvQuests.Columns[0].Width = 197;
+            dgvQuests.Columns[1].Name = "Done?";
+
+            dgvQuests.Rows.Clear();
+
+            foreach(PlayerQuest playerQuest in _player.Quests)
+            {
+                dgvQuests.Rows.Add(new[]
+                {
+                    playerQuest.Details.Name,
+                    playerQuest.IsCompleted.ToString()
+                });
+            }
+
+        }
+        
+        private void UpdateWeaponListInUI()
+        {
+            List<Weapon> weapons = new List<Weapon>();
+            
+            foreach(InventoryItem inventoryItem in _player.Inventory)
+            {
+                if(inventoryItem.Details is Weapon)
+                {
+                    if(inventoryItem.Quantity > 0)
+                    {
+                        weapons.Add((Weapon)inventoryItem.Details);
+                    }
+                }
+            }
+
+            if(weapons.Count == 0)
+            {
+                //the player doesn't have any weapons, so hide the weapon combobox and use button
+                cboWeapons.Visible = false;
+                btnUseWeapon.Visible = false;
+            }
+            else
+            {
+                cboWeapons.DataSource = weapons;
+                cboWeapons.DisplayMember = "Name";
+                cboWeapons.ValueMember = "ID";
+
+                cboWeapons.SelectedIndex = 0;
+            }
+        }
+
+        private void UpdatePotionListInUI()
+        {
+            List<HealingPotion> healingPotions = new List<HealingPotion>();
+
+            foreach (InventoryItem inventoryItem  in _player.Inventory)
+            {
+                if(inventoryItem.Details is HealingPotion)
+                {
+                    if(inventoryItem.Quantity > 0)
+                    {
+                        healingPotions.Add((HealingPotion)inventoryItem.Details);
+                    }
+                }
+            }
+
+            if(healingPotions.Count == 0)
+            {
+                //the player doesn't have any potions, so hide the potion
+                //combobox and use button
+                cboPotions.Visible = false;
+                btnUsePotion.Visible = false;
+            }
+            else
+            {
+                cboPotions.DataSource = healingPotions;
+                cboPotions.DisplayMember = "Name";
+                cboPotions.ValueMember = "ID";
+
+                cboPotions.SelectedIndex = 0;
+            }
+        }
+
 
 
         private void btnUseWeapon_Click(object sender, EventArgs e)
