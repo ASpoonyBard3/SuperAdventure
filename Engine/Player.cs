@@ -59,6 +59,19 @@ namespace Engine
             return false;
         }
 
+        public bool CompletedThisQuest(Quest quest)
+        {
+            foreach (PlayerQuest playerQuest in Quests)
+            {
+                if(playerQuest.Details.ID == quest.ID)
+                {
+                    return playerQuest.IsCompleted;
+                }
+            }
+
+            return false;
+        }
+
         public bool HasAllQuestCompletionItems(Quest quest)
         {
             //see if the player has all the items needed to complete the quest here
