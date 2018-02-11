@@ -150,15 +150,15 @@ namespace Engine
             spiderField.LocationToWest = bridge;
 
             // Add the locations to the static list
-            Locations.Add(home);
-            Locations.Add(townSquare);
-            Locations.Add(guardPost);
-            Locations.Add(alchemistHut);
-            Locations.Add(alchemistsGarden);
-            Locations.Add(farmhouse);
-            Locations.Add(farmersField);
-            Locations.Add(bridge);
-            Locations.Add(spiderField);
+            Location.Add(home);
+            Location.Add(townSquare);
+            Location.Add(guardPost);
+            Location.Add(alchemistHut);
+            Location.Add(alchemistsGarden);
+            Location.Add(farmhouse);
+            Location.Add(farmersField);
+            Location.Add(bridge);
+            Location.Add(spiderField);
         }
 
         private static void PopulateQuests()
