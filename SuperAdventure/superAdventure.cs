@@ -333,6 +333,11 @@ namespace SuperAdventure
             }
         }
 
+        private void ScrollToBottomOfMessages()
+        {
+            rtbMessages.SelectionStart = rtbMessages.Text.Length;
+            rtbMessages.ScrollToCaret();
+        }
 
 
         private void BtnUseWeapon_Click(object sender, EventArgs e)
