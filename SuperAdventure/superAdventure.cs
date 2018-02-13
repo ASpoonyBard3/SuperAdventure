@@ -333,11 +333,13 @@ namespace SuperAdventure
             }
         }
 
+        // After you add more to rtbMessages.Text, call the ScrollToBottomOfMessages() function.
         private void ScrollToBottomOfMessages()
         {
             rtbMessages.SelectionStart = rtbMessages.Text.Length;
             rtbMessages.ScrollToCaret();
         }
+        
 
 
         private void BtnUseWeapon_Click(object sender, EventArgs e)

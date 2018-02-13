@@ -17,6 +17,7 @@ namespace SuperAdventure
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SuperAdventure());
+
         }
     }
 }
