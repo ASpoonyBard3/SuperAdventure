@@ -19,11 +19,10 @@ namespace Engine
         public Location CurrentLocation { get; set; }
 
         public Player(int currentHitPoints, int maximumHitPoints,
-            int gold, int expPoints, int level): base(currentHitPoints, maximumHitPoints)
+            int gold, int expPoints): base(currentHitPoints, maximumHitPoints)
         {
             Gold = gold;
             ExpPoints = expPoints;
-            Level = level;
             Inventory = new List<InventoryItem>();
             Quests = new List<PlayerQuest>();
         }

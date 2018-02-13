@@ -21,7 +21,7 @@ namespace SuperAdventure
         {
             InitializeComponent();
 
-            _player = new Player(10, 10, 20, 0, 1);
+            _player = new Player(10, 10, 20, 0);
             MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
             _player.Inventory.Add(new InventoryItem(
             World.ItemByID(World.ITEM_ID_RUSTY_SWORD), 1));
@@ -340,7 +340,14 @@ namespace SuperAdventure
             rtbMessages.ScrollToCaret();
         }
         
-
+        private void UpdatePlayerStats()
+        {
+            //refresh player information and inventory controls
+            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+            lblGold.Text = _player.Gold.ToString();
+            lblExp.Text = _player.Exp.ToString();
+            lblLevel.Text = _player.Level.ToString();
+        }
 
         private void BtnUseWeapon_Click(object sender, EventArgs e)
         {
