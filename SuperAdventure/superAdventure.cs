@@ -207,6 +207,7 @@ namespace SuperAdventure
                 btnUsePotion.Visible = false;
             }
 
+
             // Refresh player's inventory list
             UpdateInventoryListInUI();
 
@@ -221,6 +222,8 @@ namespace SuperAdventure
             // Refresh player's potions combobox
             UpdatePotionListInUI();
 
+            // Refresh player information and inventory controls
+            UpdatePlayerStats();
 
         }
         private void UpdateInventoryListInUI()
@@ -345,7 +348,7 @@ namespace SuperAdventure
             //refresh player information and inventory controls
             lblHitPoints.Text = _player.CurrentHitPoints.ToString();
             lblGold.Text = _player.Gold.ToString();
-            lblExp.Text = _player.Exp.ToString();
+            lblExp.Text = _player.ExpPoints.ToString();
             lblLevel.Text = _player.Level.ToString();
         }
 
@@ -420,12 +423,8 @@ namespace SuperAdventure
                     }
                 }
 
-                //refresh player information and inventory controls
-                lblHitPoints.Text = _player.CurrentHitPoints.ToString();
-                lblGold.Text = _player.Gold.ToString();
-                lblExp.Text = _player.ExpPoints.ToString();
-                lblLevel.Text = _player.Level.ToString();
 
+                UpdatePlayerStats();
                 UpdateInventoryListInUI();
                 UpdateWeaponListInUI();
                 UpdatePotionListInUI();
