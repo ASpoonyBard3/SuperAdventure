@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -82,25 +82,27 @@ namespace Engine
         {
             foreach (QuestCompletionItems qci in quest.QuestCompletionItems)
             {
-               Inv
+                InventoryItem item = Inventory.SingleOrDefault(
+                    ii => ii.Details.ID == qci.Details.ID);
+
+                if(item != null)
+                {
+                    //subtract the quantity from the player's inventory
+                    //that was needed to complete the quest
+                    item.Quantity -= qci.Quantity;
+                }
             }
         }
 
         public void AddItemToInventory(Item itemToAdd)
         {
-            foreach (InventoryItem ii in Inventory)
-            {
-                if(ii.Details.ID == itemToAdd.ID)
-                {
-                    //they have the item in their inventory, so increase the quantity by one
-                    ii.Quantity++;
+            InventoryItem item = Inventory.SingleOrDefault(
+                ii => ii.Details.ID == itemToAdd.ID);
 
-                    return; //we addedd the item, and are doen, so get out of this function
-                }
+            if(item == null)
+            {
+
             }
-            //they didnt have the item,. so add it to their inventory, 
-            //with a quantity of 1
-            Inventory.Add(new InventoryItem(itemToAdd, 1));
         }
 
         public void MarkQuestCompleted(Quest quest)
